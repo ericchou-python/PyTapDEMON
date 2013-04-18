@@ -29,7 +29,7 @@ def _handle_pytap (event):
       log.debug("Packet toward 192.168.100.2")
       forwardFlow.match.in_port = 1
       forwardFlow.actions.append(of.ofp_action_nw_addr.set_dst(IPAddr("192.168.100.2")))
-      forwardFlow.actions.append(of.ofp_action_dl_addr.set_dst(EthAddr("00:05:1b:74:08:15")))
+      forwardFlow.actions.append(of.ofp_action_dl_addr.set_dst(EthAddr("<masked>")))
       forwardFlow.actions.append(of.ofp_action_output(port=2))
       forwardFlow.actions.append(of.ofp_action_output(port=3))
       event.connection.send(forwardFlow)
@@ -43,7 +43,7 @@ def _handle_pytap (event):
       returnFlow.match.nw_dst = IPAddr("192.168.100.1")
       returnFlow.match.in_port = 2
       returnFlow.actions.append(of.ofp_action_nw_addr.set_dst(IPAddr("192.168.100.1")))
-      returnFlow.actions.append(of.ofp_action_dl_addr.set_dst(EthAddr("40:3c:fc:00:1a:c3")))
+      returnFlow.actions.append(of.ofp_action_dl_addr.set_dst(EthAddr("<masked>")))
       returnFlow.actions.append(of.ofp_action_output(port=1))
       event.connection.send(returnFlow)
 
