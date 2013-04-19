@@ -3,8 +3,8 @@
 """
 author: Eric Chou (@ericchou)
 
-1. 2x port Filter Switches with 5 hosts and 5 trunk ports.
-2. 1x port Aggregation Switch with 10 trunk ports and Deep inspection host
+Programmable Patch Panel 2x 64-port switch with
+the last 32 ports connected back-to-back
 
 """
 
@@ -13,7 +13,7 @@ from mininet.node import OVSSwitch
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 
-def PyTapDEMON():
+def PyPath():
 
     net = Mininet( switch=OVSSwitch, build=False)
 
@@ -23,33 +23,28 @@ def PyTapDEMON():
     print "*** Creating switches"
     s1 = net.addSwitch('s1')
     s2 = net.addSwitch('s2')
-    s3 = net.addSwitch('s3')
 
     print "*** Creating hosts"
-    host1 = [ net.addHost('h%d' % n) for n in range(1,6)]
-    host2 = [ net.addHost('h%d' % n) for n in range(6,11)]
+    host1 = [ net.addHost('h%d' % n) for n in range(1,33)] #hosts for switch1
+    host2 = [ net.addHost('h%d' % n) for n in range(33,65)] #hosts for switch2
 
     print "*** Creating links"
     for h in host1:
         net.addLink (s1, h)
     for h in host2:
         net.addLink (s2, h)
-    for i in range(1,6):
-        net.addLink(s1, s3)
-    for i in range(1,6):
-        net.addLink(s2, s3)
+    for i in range(1,33): #links for back-to-back connection
+        net.addLink(s1, s2)
 
     print "*** Starting network"
     net.build()
     s1.start ( [ c1 ])
     s2.start ( [ c1 ])
-    s3.start ( [ c1 ])
 
     print "*** Running CLI"
     CLI( net )
  
 if __name__ == '__main__':
     setLogLevel('info')
-    PyTapDEMON()
-
+    PyPath()
 
