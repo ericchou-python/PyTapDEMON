@@ -19,11 +19,22 @@ timeout = 120
 s1PortPairs = [(1,2), (3,4)]
 s2PortPairs = [(1,2)]
 
-# s1 mirror source and destination
-s1MirrorSrc = [1]
-s1MirrorDst = [6]
-s2MirrorSrc = [2]
-s2MirrorDst = [7]
+# mirror source and destination
+f = open('ext/mirrorPorts.txt', 'r')
+for num, item in enumerate(f.readlines()):
+    if num == 0:
+        s1MirrorSrc = item.strip().split(',')[1:]
+        s1MirrorSrc = map(lambda x: int(x), s1MirrorSrc) #convert to int
+    if num == 1:
+        s1MirrorDst = item.strip().split(',')[1:]
+        s1MirrorDst = map(lambda x: int(x), s1MirrorDst)
+    if num == 2:
+        s2MirrorSrc = item.strip().split(',')[1:]
+        s2MirrorSrc = map(lambda x: int(x), s2MirrorSrc)
+    if num == 3: 
+        s2MirrorDst = item.strip().split(',')[1:]
+        s2MirrorDst = map(lambda x: int(x), s2MirrorDst)
+
 
 def _PortFlowMod(srcPort, dstPort, timeout, mirrorSrc, mirrorDst):
     print "Push Flow from Source Port %s to Destion Port %s with %s seconds timeout" % \

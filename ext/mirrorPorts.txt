@@ -1,0 +1,4 @@
+s1MirrorSrc,1
+s1MirrorDst,6
+s2MirrorSrc,2
+s2MirrorDst,7
