@@ -22,12 +22,16 @@ def PyTapDEMON():
 
     print "*** Creating switches"
     s1 = net.addSwitch('s1')
+    s1.listenPort = 6634
     s2 = net.addSwitch('s2')
+    s2.listenPort = 6635
     s3 = net.addSwitch('s3')
+    s3.listenPort = 6636
 
     print "*** Creating hosts"
     host1 = [ net.addHost('h%d' % n) for n in range(1,6)]
     host2 = [ net.addHost('h%d' % n) for n in range(6,11)]
+    host3 = net.addHost('h11')
 
     print "*** Creating links"
     for h in host1:
@@ -38,6 +42,7 @@ def PyTapDEMON():
         net.addLink(s1, s3)
     for i in range(1,6):
         net.addLink(s2, s3)
+    net.addLink(host3, s3)
 
     print "*** Starting network"
     net.build()
