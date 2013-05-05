@@ -21,12 +21,9 @@ def PyTapDEMON():
     c1 = net.addController('c1', port=6633)
 
     print "*** Creating switches"
-    s1 = net.addSwitch('s1')
-    s1.listenPort = 6634
-    s2 = net.addSwitch('s2')
-    s2.listenPort = 6635
-    s3 = net.addSwitch('s3')
-    s3.listenPort = 6636
+    s1 = net.addSwitch('s1', listenPort=6634)
+    s2 = net.addSwitch('s2', listenPort=6635)
+    s3 = net.addSwitch('s3', listenPort=6636)
 
     print "*** Creating hosts"
     host1 = [ net.addHost('h%d' % n) for n in range(1,6)]
