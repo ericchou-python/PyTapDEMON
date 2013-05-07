@@ -1,3 +1,10 @@
+#
+# Example taken from:
+# Twisted Network Programming Essentials, 2nd Edition
+# By: Jessica McKellar, Abe Fettig
+# OReilly Media, Ebook ISBN:978-1-4493-3330-0
+#
+
 from twisted.internet import reactor, protocol
 import json
 
