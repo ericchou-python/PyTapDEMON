@@ -1,0 +1,41 @@
+
+graph {
+
+/* Node Definition */
+
+size = "20,20"; resolution=72;
+node [shape=box3d, width=1, height=0.6, fontname="Arial"];
+
+s1[label="s1 filter switch 1"];
+s2[label="s2 filter switch 2"];
+s3[label="s3 aggregation swtich"];
+
+h11[label="h11 DPKT"];
+
+/* Edge Definition */
+
+h1 -- s1 [label="e1", color="red"];
+h2 -- s1 [label="e2", color="red"];
+h3 -- s1 [label="e3", color="blue"];
+h4 -- s1 [label="e4", color="blue"];
+h5 -- s1 [label="e5"];
+s1 -- s3 [label="e6", color="red"];
+s1 -- s3 [label="e7"];
+s1 -- s3 [label="e8"];
+s1 -- s3 [label="e9"];
+s1 -- s3 [label="e10"];
+
+h6 -- s2 [label="e1", color="red"];
+h7 -- s2 [label="e2", color="red"];
+h8 -- s2 [label="e3"];
+h9 -- s2 [label="e4"]; 
+h10 -- s2 [label="e5"];
+s2 -- s3 [label="e6"];
+s2 -- s3 [label="e7", color="red"];
+s2 -- s3 [label="e8"];
+s2 -- s3 [label="e9"];
+s2 -- s3 [label="e10"];
+
+{rank=same; h11 -- s3 [label="e11", color="red"];}
+
+}

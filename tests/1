@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+
+import json
+import urllib2
+
+data = json.load(urllib2.urlopen('http://192.168.56.1:8008/metric/ALL/tcp/json'))
+
+if data[0]['topKeys'][0]['key']:
+    print 'yes'
