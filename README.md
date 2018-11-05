@@ -1,6 +1,8 @@
 PyTapDEMON
 ==========
 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/ericchou-python/PyTapDEMON)
+
 Python-based OpenFlow Distributed Ethernet Monitoring System
 
 **[11/05/2018 Update] This was an old project that I developed a number of years ago using OpenFlow, POX, and Mininet. If there is enough interest, I would be open to take the next step forward with perhpas Ryu controller, physical switches, and OpenFlow 1.3 and above.**
