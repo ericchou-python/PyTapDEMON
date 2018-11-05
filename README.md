@@ -26,11 +26,11 @@ The prototype mainly uses Mininet to simulate the network and POX controller and
 
 Unfortunately, as prototype goes, there are some rough edges around this project, e.g. you can't just 'pip install' the code. It requires some knowledge with OpenFlow 1.0 specifications, Mininet, and POX controller. All the necessary links are included in the posts linked below. 
 
-However, it is a working prototype as you can find the screencast in the [this post](http://blog.pythonicneteng.com/2013/04/pytapdemon-part-2-prototype.html). 
+However, it is a working prototype as you can find the screencast in [this post](http://blog.pythonicneteng.com/2013/04/pytapdemon-part-2-prototype.html). 
 
 ## Prototype
 
-The prototype consist of a custom Mininet config (included in this repo) with 2 filter switches (s1 and s2) with 5 hosts each (h1-h5 on s1, h6-h10 on s2), 5x uplinks aggregation switch (s3), and a capture host (h11) attached to Eth11 on s3: 
+The prototype consist of a custom Mininet config (included in this repo) with 2 filter switches (s1 and s2) with 5 hosts each (h1-h5 on s1, h6-h10 on s2), 5x uplinks each to the aggregation switch (s3), and a capture host (h11) attached to Eth11 on s3: 
 
 ![Mininet Normal State](https://github.com/ericchou-python/PyTapDEMON/blob/master/Graphs/PyTapDEMON_Original.gv.png)
 
